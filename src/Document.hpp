@@ -5,12 +5,15 @@
 #pragma once
 
 #include <iostream>
+#include <fstream>
 
 namespace YAML
 {
-	class Parser
+	class Document
 	{
 	public:
+		void parse(std::ifstream &file);
+
 		void hi() {
 			std::cout << "hello world !" << std::endl;
 		};

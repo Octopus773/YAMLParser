@@ -2,11 +2,13 @@
 // Created by cbihan on 03/08/2021.
 //
 
-#include <Parser.hpp>
+#include <Document.hpp>
 
-int main()
+int main(int ac, char**av)
 {
-	YAML::Parser testParser;
+	YAML::Document testParser;
+
+
 
 	testParser.hi();
 }
