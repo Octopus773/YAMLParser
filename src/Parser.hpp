@@ -9,5 +9,11 @@
 
 namespace YAML
 {
-	Tree parser(const std::string &string);
+	Tree parser(const std::string &YAMLString);
+
+	namespace Parser
+	{
+		std::pair<Datatype, std::string> getValue(const std::string &value);
+	}
+
 }

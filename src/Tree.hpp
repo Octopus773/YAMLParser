@@ -7,6 +7,7 @@
 #include <iostream>
 #include <fstream>
 
+#include "Utils.hpp"
 #include "Node.hpp"
 
 namespace YAML
@@ -15,7 +16,7 @@ namespace YAML
 	{
 	public:
 		unsigned int indentSize;
-		bool indentWithTabs;
+		IndentType indentType;
 
 		std::vector<Node> data;
 	public:
