@@ -2,11 +2,11 @@
 // Created by cbihan on 03/08/2021.
 //
 
-#include "Document.hpp"
+#include "Tree.hpp"
 
 namespace YAML
 {
-	void Document::parse(std::ifstream &file)
+	void Tree::parse(std::ifstream &file)
 	{
 
 	}

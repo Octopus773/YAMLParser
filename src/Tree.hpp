@@ -9,7 +9,7 @@
 
 namespace YAML
 {
-	class Document
+	class Tree
 	{
 	public:
 		void parse(std::ifstream &file);

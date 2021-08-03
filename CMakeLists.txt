@@ -9,10 +9,13 @@ endif ()
 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 
 set(SOURCES
-	src/Document.cpp
-	src/Document.hpp
+	src/Tree.cpp
+	src/Tree.hpp
 	)
 
 include_directories(src)
 
-add_executable(YAMLParserTestBin ${SOURCES} tests/main.cpp)
+add_library(YAMLParser ${SOURCES})
+
+add_executable(YAMLTestBin tests/main.cpp)
+target_link_libraries(YAMLParser)
