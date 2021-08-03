@@ -3,7 +3,14 @@
 //
 
 #include "Parser.hpp"
+#include "Exceptions/ParserError.hpp"
 #include "Tree.hpp"
+
+
+void slt()
+{
+	std::cout << "eh oh!" << std::endl;
+}
 
 namespace YAML
 {
@@ -11,17 +18,21 @@ namespace YAML
 	{
 		Tree tree{};
 		int currentIndentLevel = 0;
-		tree.indentSize = Utils::getIndentLevel(YAMLString);
-		tree.indentType = IndentType::Space;
+		tree._indentSize = Utils::getIndentLevel(YAMLString);
+		tree._indentType = IndentType::Space;
 		std::vector<std::string> lines = Utils::splitStr(YAMLString, '\n');
+		std::vector<std::string> keyValue;
 
 		for (auto line : lines) {
 			if (line.empty()) {
 				continue;
 			}
-
+			keyValue = Utils::splitStr(line, ": ");
+			if (keyValue.size() != 2) {
+				throw Exception::ParserError(line);
+			}
+			tree.addValue(keyValue[0], Parser::getValue(keyValue[1]));
 		}
-
 		return tree;
 	}
 

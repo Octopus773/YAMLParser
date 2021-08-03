@@ -17,11 +17,12 @@ set(SOURCES
 	src/Node.hpp
 	src/Utils.cpp
 	src/Utils.hpp
+	src/Exceptions/ParserError.hpp
 	)
 
 include_directories(src)
 
-add_library(YAMLParser ${SOURCES})
+add_library(YAMLParser STATIC ${SOURCES})
 
 add_executable(YAMLTestBin tests/main.cpp)
-target_link_libraries(YAMLParser)
+target_link_libraries(YAMLTestBin PUBLIC YAMLParser)

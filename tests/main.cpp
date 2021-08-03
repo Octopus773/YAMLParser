@@ -3,12 +3,18 @@
 //
 
 #include <Tree.hpp>
+#include <Parser.hpp>
+#include <Utils.hpp>
 
-int main(int ac, char**av)
+void slt();
+
+int main(int ac, char **av)
 {
-	YAML::Tree testParser;
-
-
+	YAML::Tree testParser = YAML::parser(
+		R"(re: '[re'
+t: 2
+k: "re"
+e: )");
 
 	testParser.hi();
 }

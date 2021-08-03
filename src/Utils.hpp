@@ -30,7 +30,18 @@ namespace YAML
 	namespace Utils
 	{
 		unsigned int getIndentLevel(const std::string &yamlString);
-		std::vector<std::string> splitStr(const std::string &str, char delim);
+
+		//! @brief split a string with a delim char
+		//! @param str The string to split
+		//! @param delimiter The delimiter char
+		//! @return A vector of all the substrings
+		std::vector<std::string> splitStr(const std::string &str, char delimiter);
+
+		//! @brief split a string with a delim string
+		//! @param str The string to split
+		//! @param delimiter The delimiter string
+		//! @return A vector of all the substrings
+		std::vector<std::string> splitStr(std::string str, const std::string &delim);
 
 		//! @brief trim left end
 		void lTrim(std::string &s);
@@ -51,7 +62,7 @@ namespace YAML
 		std::string trimCopy(std::string s);
 
 		//! @brief Compares 2 string case insensitive
-		bool isEquals(const std::string &a, const std::string &b);
+		bool isEquals(const std::string &str1, const std::string &str2);
 
 		//! @brief return true if parsing has been successful result ill be in i
 		template<typename T>

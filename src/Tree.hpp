@@ -15,16 +15,23 @@ namespace YAML
 	class Tree
 	{
 	public:
-		unsigned int indentSize;
-		IndentType indentType;
+		unsigned int _indentSize;
+		IndentType _indentType;
 
-		std::vector<Node> data;
+		Node _root;
 	public:
-		void parse(std::ifstream &file);
+
+		void addValue(const std::string& key, std::pair<Datatype, std::string> value);
+		void addChild(Node child);
 
 		void hi() {
 			std::cout << "hello world !" << std::endl;
 		};
+
+		Tree();
+		Tree(const Tree &) = default;
+		~Tree() = default;
+		Tree &operator=(const Tree &) = default;
 
 	};
 }

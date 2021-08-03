@@ -12,18 +12,31 @@ namespace YAML::Utils
 		return 2;
 	}
 
-	std::vector<std::string> splitStr(const std::string &str, char delim)
+	std::vector<std::string> splitStr(const std::string &str, char delimiter)
 	{
 		std::vector<std::string> strings;
 		std::istringstream f(str);
 		std::string buffer;
 
-		while (std::getline(f, buffer, delim)) { ;
+		while (std::getline(f, buffer, delimiter)) { ;
 			strings.push_back(buffer);
 		}
-		if (str.back() == delim) {
+		if (str.back() == delimiter) {
 			strings.emplace_back("");
 		}
+		return strings;
+	}
+
+	std::vector<std::string> splitStr(std::string str, const std::string &delimiter)
+	{
+		std::vector<std::string> strings;
+
+		size_t pos = 0;
+		while ((pos = str.find(delimiter)) != std::string::npos) {
+			strings.emplace_back(str.substr(0, pos));
+			str.erase(0, pos + delimiter.length());
+		}
+		strings.emplace_back(str);
 		return strings;
 	}
 
@@ -65,10 +78,10 @@ namespace YAML::Utils
 		return s;
 	}
 
-	bool isEquals(const std::string &a, const std::string &b)
+	bool isEquals(const std::string &str1, const std::string &str2)
 	{
-		return std::equal(a.begin(), a.end(),
-		                  b.begin(), b.end(),
+		return std::equal(str1.begin(), str1.end(),
+		                  str2.begin(), str2.end(),
 		                  [](char a, char b) {
 			                  return std::tolower(a) == std::tolower(b);
 		                  });
