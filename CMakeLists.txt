@@ -11,7 +11,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 set(SOURCES
 	src/Tree.cpp
 	src/Tree.hpp
-	)
+	src/Parser.cpp src/Parser.hpp src/Node.cpp src/Node.hpp)
 
 include_directories(src)
 
